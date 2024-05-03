@@ -167,7 +167,7 @@ __device__ void paged_attention_kernel(
   const int thread_group_idx = thread_idx / THREAD_GROUP_SIZE;
   const int thread_group_offset = thread_idx % THREAD_GROUP_SIZE;
 
-  // Load the query to registers.
+  // Load the query to shared memory.
   // Each thread in a thread group has a different part of the query.
   // For example, if the the thread group size is 4, then the first thread in the group
   // has 0, 4, 8, ... th vectors of the query, and the second thread has 1, 5, 9, ...
